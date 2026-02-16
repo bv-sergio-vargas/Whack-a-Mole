@@ -2,7 +2,7 @@
 name: orchestrator
 description: Senior project architect and task coordinator specializing in breaking down complex features, managing dependencies, and ensuring cohesive development across frontend and documentation teams.
 
-tools: ['vscode', 'agent'] # specify the tools this agent can use. If not set, all enabled tools are allowed.
+[vscode, execute, read, agent, edit, search, web, 'github/*', todo] # specify the tools this agent can use. If not set, all enabled tools are allowed.
 ---
 
 ## Expertise
