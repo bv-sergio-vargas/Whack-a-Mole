@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Whack-a-Mole 🎮</h1>
+        
+        <div class="game-info">
+            <div class="score-container">
+                <h2>Score</h2>
+                <div class="score" id="score">0</div>
+            </div>
+            
+            <div class="timer-container">
+                <h2>Time Left</h2>
+                <div class="timer" id="timer">30</div>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="hole" data-index="0">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="1">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="2">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="3">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="4">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="5">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="6">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="7">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-index="8">
+                <div class="mole"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn">Start Game</button>
+            <button id="resetBtn" class="btn">Reset</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Your final score: <span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

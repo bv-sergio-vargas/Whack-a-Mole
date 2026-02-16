@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.score-container,
+.time-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 30px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    flex: 1;
+}
+
+.label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.score,
+.time {
+    font-size: 2em;
+    display: block;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 15px;
+}
+
+.hole {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 50% 30%, #8B4513, #654321);
+    border-radius: 50%;
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s;
+    pointer-events: auto;
+}
+
+.hole:active {
+    transform: scale(0.95);
+}
+
+.mole {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 40% 40%, #8B6F47, #5D4E37);
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.3s;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Agregar detalles visuales al topo */
+.mole::before {
+    content: '👀';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+}
+
+.mole.up {
+    bottom: 10px;
+    pointer-events: auto;
+}
+
+.mole.whacked {
+    background: radial-gradient(circle at 40% 40%, #666, #333);
+    pointer-events: none;
+}
+
+/* Topo Bomba */
+.mole.bomb {
+    background: radial-gradient(circle at 40% 40%, #FF4444, #CC0000);
+}
+
+.mole.bomb::before {
+    content: '💣';
+    font-size: 2em;
+    top: 15px;
+}
+
+.mole.bomb.whacked {
+    background: radial-gradient(circle at 40% 40%, #990000, #660000);
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+}
+
+.start-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .hole {70px;
+        height: 70px;
+        bottom: -70px;
+    }
+
+    .mole.up {
+        bottom: 5px;
+        pointer-events: auto
+        height: 60px;
+        bottom: -60px;
+    }
+
+    .mole.up {
+        bottom: 10px;
+    }
+
+    .game-board {
+        gap: 10px;
+        padding: 10px;
+    }
+}
